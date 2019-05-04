@@ -26,16 +26,23 @@ public class IndexControlador {
         double punto = 0.0;
         String comentario = "";
         String calificacion;
-        int preguntas_num = -1;
-        String preguntas_num_texto;
+        //int preguntas_num = -1;
+        String name;
+        String contrasenya;
         try {
             Map<String, String> query_mapa = new HashMap();
             URL url = new URL(url_texto);
             ret = Urls_operaciones.extraer_parametros_query(url, query_mapa, error);
-            preguntas_num_texto = query_mapa.get("preguntas_num");
-            if (preguntas_num_texto != null) {
-                preguntas_num = Integer.valueOf(preguntas_num_texto);
+            name = query_mapa.get("nombreAdministrador");
+            System.out.println(name);
+            if (name != null) {
+               // preguntas_num = Integer.valueOf(name);
+               
             }
+            
+            contrasenya = query_mapa.get("contrasenya");
+            
+            /*
             int i = 1;
             while (true) {
                 respuesta = query_mapa.get("radio_pregunta_" + i);
@@ -102,6 +109,7 @@ public class IndexControlador {
                 archivo = archivo.replace("${Comentario}", comentario);
                 retorno = archivo;
             }
+*/
         } catch (Exception e) {
             error[0] = e.getMessage();
             if (error[0] == null) {
