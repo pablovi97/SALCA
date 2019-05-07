@@ -43,6 +43,7 @@ public class FXMLDocumentController implements Initializable {
             texto = texto.replace("${browser_java_ruta}", ruta);
             webEngine.loadContent(texto);    
         }
+     
     }
     public boolean poner_escuchador_de_url(String[] error) {
         boolean ret = true;

@@ -36,10 +36,10 @@ and open the template in the editor.
         -->
         <h1>Escriba el lugar de instalación y los datos del administrador
         </h1>
-        <form>
+        <form method="get">
 
             Introduzca la ruta de instalacion<br/>
-            <input type="file" name="myFile">
+            <input type="text" name="ruta">
             <br/>Nombre Administrador</br>
             
             <input type="text" name="nombreAdministrador" size="20"/><br/>
@@ -51,7 +51,7 @@ and open the template in the editor.
             <input type="text" name="telefono" size="20"/><br/>
             Introduzca el email<br/>
             <input type="text" name="email" size="50"/><br/>
-            <input type="button" value="Enviar"/>
+            <button name="Enviar">Enviar</button>
             <input type="reset"  value="Cancelar"/>
         </form>
     </body>
