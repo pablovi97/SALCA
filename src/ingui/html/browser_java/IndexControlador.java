@@ -81,7 +81,7 @@ public class IndexControlador {
                     retorno = archivo;
                 }
             }else{
-                
+               
             }
 
 //            preguntas_num_texto = query_mapa.get("preguntas_num"); //NOI18N

@@ -37,7 +37,7 @@ public class Examen_banderas implements App_browser_java {
         
         try {
             if (url.startsWith("http://browser_java/index")) { //NOI18N
-                System.out.println("holaaa");
+               
                 contenido = IndexControlador.procesar(url, error);
                 System.out.println(contenido);
                 if (contenido != null) {
