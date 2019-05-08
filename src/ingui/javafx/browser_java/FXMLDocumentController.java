@@ -26,14 +26,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private WebView webView;
-    
-    WebEngine webEngine;
+
+    static WebEngine webEngine;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         boolean ret = true;
         String[] error = {""};
-         webEngine= webView.getEngine();
+        webEngine = webView.getEngine();
         ret = poner_escuchador_de_url(error);
         String archivo = "/ingui/html/browser_java/recursos/index.html";
         String texto = null;
@@ -48,16 +48,17 @@ public class FXMLDocumentController implements Initializable {
             texto = texto.replace("${nombreAdministrador}", "");
             texto = texto.replace("${telefono}", "");
             texto = texto.replace("${email}", "");
-            
-       
+
             cambiarPantalla(texto);
-           
+
         }
 
     }
-    
-    public void cambiarPantalla(String texto){
-         webEngine.loadContent(texto);
+
+    static public void cambiarPantalla(String texto) {
+        System.out.println("hola");
+        System.out.println(texto);
+        webEngine.loadContent(texto);
     }
 
     public boolean poner_escuchador_de_url(String[] error) {
@@ -80,7 +81,7 @@ public class FXMLDocumentController implements Initializable {
                         } else {
                             ret = false;
                         }
-                    }
+                    } 
                 } catch (Exception e) {
                     error[0] = e.getMessage();
                     if (error[0] == null) {

@@ -41,6 +41,7 @@ public class Examen_banderas implements App_browser_java {
                 contenido = IndexControlador.procesar(url, error);
                 System.out.println(contenido);
                 if (contenido != null) {
+                    
                     ret = fXMLDocumentController.cargar_contenido(contenido, "text/html", error); //NOI18N
                 } else {
                     ret = false;

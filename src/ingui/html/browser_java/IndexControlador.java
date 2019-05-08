@@ -5,9 +5,11 @@
  */
 package ingui.html.browser_java;
 
+import ingui.javafx.browser_java.FXMLDocumentController;
 import innui.archivos.Archivos;
 import innui.http.Url_operaciones;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Locale;
@@ -50,6 +52,17 @@ public class IndexControlador {
         return retorno;
     }
 
+//    public static void procesar_url(String url_texto, String[] error) throws MalformedURLException {
+//        URL url = new URL(url_texto);
+//        Map<String, String> query_mapa = new HashMap();
+//        Url_operaciones.extraer_parametros_query(url, query_mapa, error);
+//
+//        for (String string : query_mapa.values()) {
+//            System.out.println(string);
+//
+//        }
+//
+//    }
     public static String procesar(String url_texto, String[] error) {
         Salca sc = new Salca();
         String retorno = null;
@@ -67,21 +80,33 @@ public class IndexControlador {
             URL url = new URL(url_texto);
             System.out.println(url);
             ret = Url_operaciones.extraer_parametros_query(url, query_mapa, error);
+
             if (sc.comprobarInstalcion(query_mapa) == false) {
                 url_texto = "/ingui/html/browser_java/recursos/index.html";
                 String archivo = Archivos.leer_archivo_texto(
                         url_texto, error); //NOI18N
                 if (archivo != null) {
-                    
+
                     archivo = archivo.replace("${ruta}", query_mapa.get("ruta")); //NOI18N
                     archivo = archivo.replace("${nombreAdministrador}", query_mapa.get("nombreAdministrador"));
                     archivo = archivo.replace("${telefono}", query_mapa.get("telefono"));
                     archivo = archivo.replace("${email}", query_mapa.get("email"));
-                   
+
                     retorno = archivo;
+
                 }
-            }else{
-               
+            } else {
+                url_texto = "/ingui/html/browser_java/recursos/sistemador.html";
+
+                // query_mapa = new HashMap<>();
+                // ret = Url_operaciones.extraer_parametros_query(url, query_mapa, error);
+                System.out.println("entra");
+                //procesar_url(url_texto, error);
+
+                retorno = Archivos.leer_archivo_texto(url_texto, error);
+                FXMLDocumentController.cambiarPantalla(retorno);
+                //cambiar_nombre_archivo(archivo_html, error);
+
             }
 
 //            preguntas_num_texto = query_mapa.get("preguntas_num"); //NOI18N
