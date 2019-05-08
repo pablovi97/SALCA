@@ -36,21 +36,21 @@ and open the template in the editor.
         -->
         <h1>Escriba el lugar de instalación y los datos del administrador
         </h1>
-        <form method="get">
+        <form action="http://browser_java/index" method="get">
 
             Introduzca la ruta de instalacion<br/>
-            <input type="text" name="ruta">
+            <input type="text" name="ruta" value="${ruta}" size="50">
             <br/>Nombre Administrador</br>
             
-            <input type="text" name="nombreAdministrador" size="20"/><br/>
+            <input type="text" name="nombreAdministrador" value="${nombreAdministrador}" size="20"/><br/>
             Introduzca la contraseña<br/>
-            <input type="password" name="contrasenya" size="20"/><br/>
+            <input type="text" name="contrasenya"  size="20"/><br/>
             Vuelva a introducir la contraseña<br/>
-            <input type="password" name="contrasenyaValidada" size="20"/><br/>
+            <input type="text" name="contrasenyaValidada" size="20"/><br/>
             Introduzca el telefono<br/>
-            <input type="text" name="telefono" size="20"/><br/>
+            <input type="text" name="telefono" value="${telefono}" size="20"/><br/>
             Introduzca el email<br/>
-            <input type="text" name="email" size="50"/><br/>
+            <input type="text" name="email" value="${email}" size="50"/><br/>
             <button name="Enviar">Enviar</button>
             <input type="reset"  value="Cancelar"/>
         </form>

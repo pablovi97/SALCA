@@ -51,6 +51,7 @@ public class IndexControlador {
     }
 
     public static String procesar(String url_texto, String[] error) {
+        Salca sc = new Salca();
         String retorno = null;
         boolean ret = true;
         String respuesta;
@@ -60,16 +61,29 @@ public class IndexControlador {
         String calificacion;
         int preguntas_num = -1;
         String preguntas_num_texto;
-        System.out.println("lleguee" + "\n\n");
+
         try {
             Map<String, String> query_mapa = new HashMap();
             URL url = new URL(url_texto);
+            System.out.println(url);
             ret = Url_operaciones.extraer_parametros_query(url, query_mapa, error);
-            for (String string : query_mapa.keySet()) {
-                System.out.println("lleguee");
-             
-                System.out.println(string);
+            if (sc.comprobarInstalcion(query_mapa) == false) {
+                url_texto = "/ingui/html/browser_java/recursos/index.html";
+                String archivo = Archivos.leer_archivo_texto(
+                        url_texto, error); //NOI18N
+                if (archivo != null) {
+                    
+                    archivo = archivo.replace("${ruta}", query_mapa.get("ruta")); //NOI18N
+                    archivo = archivo.replace("${nombreAdministrador}", query_mapa.get("nombreAdministrador"));
+                    archivo = archivo.replace("${telefono}", query_mapa.get("telefono"));
+                    archivo = archivo.replace("${email}", query_mapa.get("email"));
+                   
+                    retorno = archivo;
+                }
+            }else{
+                
             }
+
 //            preguntas_num_texto = query_mapa.get("preguntas_num"); //NOI18N
 //            if (preguntas_num_texto != null) { 
 //                preguntas_num = Integer.valueOf(
@@ -137,11 +151,9 @@ public class IndexControlador {
             if (error[0] == null) {
                 error[0] = ""; //NOI18N
             }
-          
-              
-                System.out.println("lleguee" + "\n\n");
-              
-         
+
+            System.out.println("lleguee" + "\n\n");
+
             error[0] = java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("ingui/html/browser_java/recursos/int").getString("ERROR EN PROCESAR. {0}"), new Object[]{error[0]});
             ret = false;
             retorno = null;

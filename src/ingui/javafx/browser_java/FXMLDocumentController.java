@@ -41,6 +41,8 @@ public class FXMLDocumentController implements Initializable {
         }
         if (texto != null) {
             texto = texto.replace("${browser_java_ruta}", ruta);
+            System.out.println(texto);
+            texto = texto.replace("${ruta}","" );
             webEngine.loadContent(texto);    
         }
      
