@@ -58,7 +58,8 @@ public class Salca {
         resultado = comprobarCarpeta(comprobaciones.get("ruta"));
         if (resultado) {
             resultado = comprobaciones.values().stream()
-                    .anyMatch(texto -> texto.length() < 1);
+                    .filter(p -> p != "01")
+                    .allMatch(texto -> texto.length() > 0);
             
             System.out.println(resultado);
             for (String value : comprobaciones.values()) {
