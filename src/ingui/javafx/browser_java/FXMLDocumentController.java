@@ -6,6 +6,8 @@
 package ingui.javafx.browser_java;
 
 import ingui.html.browser_java.IndexControlador;
+import ingui.html.browser_java.SistemadorControlador;
+import ingui.html.browser_java.UsuarioControlador;
 import innui.archivos.Archivos;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+
 
 /**
  *
@@ -81,7 +84,21 @@ public class FXMLDocumentController implements Initializable {
                         } else {
                             ret = false;
                         }
-                    } 
+                    }else  if (url.startsWith("http://browser_java/sistemador")) {
+                        contenido = SistemadorControlador.procesar(url, error);
+                        if (contenido != null) {
+                            ret = cargar_contenido(contenido, "text/html", error);
+                        } else {
+                            ret = false;
+                        }
+                    }else  if (url.startsWith("http://browser_java/usuario")) {
+                        contenido = UsuarioControlador.procesar(url, error);
+                        if (contenido != null) {
+                            ret = cargar_contenido(contenido, "text/html", error);
+                        } else {
+                            ret = false;
+                        }
+                    }   
                 } catch (Exception e) {
                     error[0] = e.getMessage();
                     if (error[0] == null) {

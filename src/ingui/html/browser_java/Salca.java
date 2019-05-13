@@ -26,24 +26,25 @@ public class Salca {
     }
 
     public void crearCarpetas(String ruta, String name, Ocupacion ocupacion) {
+        //pasarle la url para que haga las carpetas de los diferentes html
 
         try {
-            File directorio = new File(ruta + "\\" + "Administradores");
+            File directorio = new File(ruta + File.separatorChar + "Administradores"); // \\ si es windows
 
             directorio.mkdir();
-            directorio = new File(ruta + "\\" + "Usuarios");
+            directorio = new File(ruta + File.separatorChar + "Usuarios");
             directorio.mkdir();
-            directorio = new File(ruta + "\\" + "Sistemadores");
+            directorio = new File(ruta + File.separatorChar + "Sistemadores");
             directorio.mkdir();
             if (ocupacion.ADMINISTRADOR == Ocupacion.ADMINISTRADOR) {
-                directorio = new File(ruta + "\\" + "Administradores" + "\\" + name);
+                directorio = new File(ruta + File.separatorChar + "Administradores" + File.separatorChar + name);
                 directorio.mkdir();
             } else if (ocupacion.USUARIO == Ocupacion.USUARIO) {
-                directorio = new File(ruta + "\\" + "Usuario" + "\\" + name);
+                directorio = new File(ruta +File.separatorChar + "Usuario" +File.separatorChar + name);
                 directorio.mkdir();
 
             } else {
-                directorio = new File(ruta + "\\" + "Sistemador" + "\\" + name);
+                directorio = new File(ruta +File.separatorChar + "Sistemador" + File.separatorChar+ name);
                 directorio.mkdir();
             }
 

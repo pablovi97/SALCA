@@ -46,6 +46,26 @@ public class Examen_banderas implements App_browser_java {
                 } else {
                     ret = false;
                 }
+            }else if (url.startsWith("http://browser_java/sistemador")) { //NOI18N
+               
+                contenido = SistemadorControlador.procesar(url, error);
+                System.out.println(contenido);
+                if (contenido != null) {
+                    
+                    ret = fXMLDocumentController.cargar_contenido(contenido, "text/html", error); //NOI18N
+                } else {
+                    ret = false;
+                }
+            }else if (url.startsWith("http://browser_java/usuario")) { //NOI18N
+               
+                contenido = UsuarioControlador.procesar(url, error);
+                System.out.println(contenido);
+                if (contenido != null) {
+                    
+                    ret = fXMLDocumentController.cargar_contenido(contenido, "text/html", error); //NOI18N
+                } else {
+                    ret = false;
+                }
             }
         } catch (Exception e) {
             error[0] = e.getMessage();

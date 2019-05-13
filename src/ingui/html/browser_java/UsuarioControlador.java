@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author daw
  */
-public class IndexControlador {
+public class UsuarioControlador {
 
     public static int k_nota_un_punto = 1;
     public static double k_nota_penalizacion = 0.5;
@@ -82,11 +82,11 @@ public class IndexControlador {
             ret = Url_operaciones.extraer_parametros_query(url, query_mapa, error);
 
             if (sc.comprobarInstalcion(query_mapa) == false) {
-                url_texto = "/ingui/html/browser_java/recursos/index.html";
+                url_texto = "/ingui/html/browser_java/recursos/usuario.html";
                 String archivo = Archivos.leer_archivo_texto(
                         url_texto, error); //NOI18N
                 if (archivo != null) {
-
+                        // cambiar por remplace de usuario
                     archivo = archivo.replace("${ruta}", query_mapa.get("ruta")); //NOI18N
                     archivo = archivo.replace("${nombreAdministrador}", query_mapa.get("nombreAdministrador"));
                     archivo = archivo.replace("${telefono}", query_mapa.get("telefono"));
@@ -101,7 +101,7 @@ public class IndexControlador {
                 if (sc.comprobarInstalcion(query_mapa) == false) {
 
                 } else {
-                    String archivo_html = "/ingui/html/browser_java/recursos/sistemador.html";
+                    String archivo_html = "/ingui/html/browser_java/recursos/fin.html";
                     archivo_html = cambiar_nombre_archivo(archivo_html, error);
                     if (archivo_html != null) {
                         String archivo = Archivos.leer_archivo_texto(
