@@ -13,10 +13,16 @@ import java.net.URL;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class Archivos {
-
+/***
+ * 
+ * @param nombre
+ * @param error
+ * @return 
+ */
     public static String leer_archivo_texto(String nombre, String[] error) {
         // Leer bytes: InputStream / OutputStream
         // Leer caracteres: Reader / Writer
@@ -44,7 +50,20 @@ public class Archivos {
         }
         return resultado;
     }
-
+    /**
+     * Para conseguir que los archivos de assets se copien a la carpeta de distribución (dist)
+     * se debe modificar el archivo: built.xml
+     * <pre>{@code 
+     * <target name="-post-compile"> 
+     *     <copy todir="${dist.dir}/assets">
+     *         <fileset dir="assets" includes="**" />
+     *     </copy>
+     *  </target> 
+     * }</pre>
+     * @param clase Clase que solicita su ruta base (su directorio base (si es un archivo jar), o la ruta del paquete donde se encuentra (si no es un jar)
+     * @param error Mensaje de error en la posición 0, si lo hay.
+     * @return true si no hay errores, false si hay errores
+     */
     public static String leer_ruta_base(Class clase, String[] error) {
         String resultado = "";
         File file;

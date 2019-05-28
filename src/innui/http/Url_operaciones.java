@@ -14,7 +14,14 @@ import java.util.Map;
  * @author daw
  */
 public class Url_operaciones {
-
+/***
+ * 
+ * @param url Contiene la url del html de la cual extraemos los parametros
+ * @param query_mapa Mapa en el que guardamos los parametros extraidos mediante diversos split
+ * @param error Almacena un error en error[0] en caso de que ocurra algun error
+ * @return Devuelve true si todo fue correcto o false si algo fallo
+ * 
+ */
     public static boolean extraer_parametros_query(URL url
             , Map<String, String> query_mapa
             , String [] error)

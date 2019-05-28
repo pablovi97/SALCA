@@ -53,7 +53,11 @@ public class Salca {
         }
 
     }
-
+    /***
+     * 
+     * @param comprobaciones Mapa con los parametros extraidos del html
+     * @return True si todo fue bien y False si la ruta no es correcta
+     */
     public boolean comprobarInstalcion(Map<String, String> comprobaciones) {
         boolean resultado = true;
         resultado = comprobarCarpeta(comprobaciones.get("ruta"));

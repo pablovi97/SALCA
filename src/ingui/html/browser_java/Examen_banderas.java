@@ -13,7 +13,8 @@ import javafx.beans.value.ObservableValue;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class Examen_banderas implements App_browser_java {
     public FXMLDocumentController fXMLDocumentController = null;
@@ -27,7 +28,12 @@ public class Examen_banderas implements App_browser_java {
     public void setfXMLDocumentController(FXMLDocumentController fXMLDocumentController) {
         this.fXMLDocumentController = fXMLDocumentController;
     }
-
+/***
+ * 
+ * @param observable 
+ * @param oldValue ruta del html cargado anteriormente
+ * @param newValue  ruta del nuevo html cargado
+ */
     @Override
     public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
         boolean ret = true;
@@ -79,7 +85,12 @@ public class Examen_banderas implements App_browser_java {
             fXMLDocumentController.poner_error(error[0]);
         }
     }
-
+/***
+ * 
+ * @param clase Recibe la clase en la que se inicia el programa
+ * @param error Almacena un error en error[0] en caso de que ocurra algun error
+ * @return Devuelve el contenido del archivo leido mediante el metodo leer:archivo_texto
+ */
     @Override
     public String iniciar_contenido(Class clase, String [] error)
     {

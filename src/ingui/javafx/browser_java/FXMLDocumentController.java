@@ -23,7 +23,8 @@ import javafx.scene.web.WebView;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class FXMLDocumentController implements Initializable {
 
@@ -52,18 +53,18 @@ public class FXMLDocumentController implements Initializable {
             texto = texto.replace("${telefono}", "");
             texto = texto.replace("${email}", "");
 
-            cambiarPantalla(texto);
+             webEngine.loadContent(texto);
 
         }
 
     }
 
-    static public void cambiarPantalla(String texto) {
-        System.out.println("hola");
-        System.out.println(texto);
-        webEngine.loadContent(texto);
-    }
 
+/***
+ * 
+ * @param error Almacena un error en error[0] en caso de que ocurra algun error
+ * @return Devulve true si todo es correcto a la hora de cambiar el path del html
+ */
     public boolean poner_escuchador_de_url(String[] error) {
         boolean ret = true;
         WebEngine webEngine = this.webView.getEngine();
@@ -119,7 +120,13 @@ public class FXMLDocumentController implements Initializable {
         String[] error = {""};
         return cargar_contenido(mensaje, "text/html", error);
     }
-
+    /***
+     * 
+     * @param contenido Contiene el contenido de un documento
+     * @param tipo_contenido Especifica el tipo del contenido como en este caso html/text
+     * @param error Almacena un error en error[0] en caso de que ocurra algun error
+     * @return Devuelve true si todo es correcto y false si algo falla
+     */
     public boolean cargar_contenido(String contenido, String tipo_contenido, String[] error) {
         boolean ret = true;
         Platform.runLater(new Runnable() {
