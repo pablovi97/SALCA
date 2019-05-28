@@ -47,7 +47,7 @@ public class Examen_banderasTest {
         Examen_banderas instance = new Examen_banderas();
         instance.setfXMLDocumentController(fXMLDocumentController);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**

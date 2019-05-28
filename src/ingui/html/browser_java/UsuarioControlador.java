@@ -23,7 +23,12 @@ public class UsuarioControlador {
 
     public static int k_nota_un_punto = 1;
     public static double k_nota_penalizacion = 0.5;
-
+/***
+ * 
+ * @param archivo Contiene el path del documento html que teniamos cargado
+ * @param error Almacena un error en error[0] en caso de que ocurra algun error
+ * @return Devulve un nuevo path que hace referencia a otro html si todo es correcto
+ */
     public static String cambiar_nombre_archivo(String archivo, String[] error) {
         String retorno = null;
         Locale locale = Locale.getDefault();
@@ -107,8 +112,6 @@ public class UsuarioControlador {
                 }
 
             }
-
-
         } catch (Exception e) {
             error[0] = e.getMessage();
             if (error[0] == null) {

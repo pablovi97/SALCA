@@ -115,7 +115,11 @@ public class FXMLDocumentController implements Initializable {
         });
         return ret;
     }
-
+    /***
+     * 
+     * @param mensaje Recibe el mensaje de error que desea reflejar
+     * @return Devuelve true si todo va bien o false si algo no va como debería
+     */
     public boolean poner_error(String mensaje) {
         String[] error = {""};
         return cargar_contenido(mensaje, "text/html", error);

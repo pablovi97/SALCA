@@ -11,7 +11,8 @@ import java.util.Map;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @autor Pablo Viera
  */
 public class Url_operaciones {
 /***

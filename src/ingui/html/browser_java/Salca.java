@@ -10,7 +10,8 @@ import java.util.Map;
 
 /**
  *
- * @author pablo
+ * @author Miguel González Socas
+ * @autor Pablo Viera
  */
 public class Salca {
 
@@ -24,7 +25,12 @@ public class Salca {
         SISTEMADOR
 
     }
-
+    /***
+     * 
+     * @param ruta Recibe la ruta de instalacion 
+     * @param name Recibe el nombre de la carpeta que se va a crear
+     * @param ocupacion Enum con los tipos de usuarios
+     */
     public void crearCarpetas(String ruta, String name, Ocupacion ocupacion) {
         //pasarle la url para que haga las carpetas de los diferentes html
 
@@ -80,6 +86,11 @@ public class Salca {
         return resultado;
     }
 
+    /***
+     * 
+     * @param ruta Recibe la ruta de instalacion 
+     * @return Devuelve true si todo va bien y false si la ruta no exista
+     */
     public boolean comprobarCarpeta(String ruta) {
         boolean resultado = true;
 
@@ -88,10 +99,4 @@ public class Salca {
         return resultado;
 
     }
-
-    public static void main(String[] args) {
-        
-        
-    }
-
 }

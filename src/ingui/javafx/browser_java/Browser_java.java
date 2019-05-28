@@ -17,7 +17,8 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class Browser_java extends Application {
 

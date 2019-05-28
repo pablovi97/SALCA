@@ -19,9 +19,9 @@ import java.net.URL;
 public class Archivos {
 /***
  * 
- * @param nombre
- * @param error
- * @return 
+ * @param nombre Es el path del archivo html
+ * @param error Almacena un error en error[0] en caso de que ocurra algun error
+ * @return Devuelve el contenido del archivo html
  */
     public static String leer_archivo_texto(String nombre, String[] error) {
         // Leer bytes: InputStream / OutputStream
