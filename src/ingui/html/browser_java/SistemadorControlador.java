@@ -17,18 +17,23 @@ import java.util.Map;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class SistemadorControlador {
 
     public static int k_nota_un_punto = 1;
     public static double k_nota_penalizacion = 0.5;
-/***
- * 
- * @param archivo Contiene el path del documento html que teniamos cargado
- * @param error Almacena un error en error[0] en caso de que ocurra algun error
- * @return Devulve un nuevo path que hace referencia a otro html si todo es correcto
- */
+
+    /**
+     * *
+     *
+     * @param archivo Contiene el path del documento html que teniamos cargado
+     * @param error Almacena un error en error[0] en caso de que ocurra algun
+     * error
+     * @return Devulve un nuevo path que hace referencia a otro html si todo es
+     * correcto
+     */
     public static String cambiar_nombre_archivo(String archivo, String[] error) {
         String retorno = null;
         Locale locale = Locale.getDefault();
@@ -57,15 +62,14 @@ public class SistemadorControlador {
         return retorno;
     }
 
-
-    
-/***
- * 
- * @param archivo Contiene el path del documento html que teniamos cargado
- * @param error Almacena un error en error[0] en caso de que ocurra algun error
- * @return Devulve un nuevo path que hace referencia a otro html si todo es correcto
- */
-    public static String procesar(String url_texto, String[] error) { //mirar este metedo
+    /**
+     * *
+     *
+     * @param url_texto De tener contenido recibe un path de un archivo html
+     * @param error Almacena un error en error[0] en caso de que ocurra algun
+     * @return Devuelve el contenido del html pasado en url_texto
+     */
+    public static String procesar(String url_texto, String[] error) {
         Salca sc = new Salca();
         String retorno = null;
         boolean ret = true;
@@ -88,7 +92,7 @@ public class SistemadorControlador {
                 String archivo = Archivos.leer_archivo_texto(
                         url_texto, error); //NOI18N
                 if (archivo != null) {
-                        // cambiar por remplace de sistemador
+                    // cambiar por remplace de sistemador
                     archivo = archivo.replace("${ruta}", query_mapa.get("ruta")); //NOI18N
                     archivo = archivo.replace("${nombreAdministrador}", query_mapa.get("nombreAdministrador"));
                     archivo = archivo.replace("${telefono}", query_mapa.get("telefono"));
@@ -98,7 +102,6 @@ public class SistemadorControlador {
 
                 }
             } else {
-
 
                 if (sc.comprobarInstalcion(query_mapa) == false) {
 
@@ -117,15 +120,11 @@ public class SistemadorControlador {
 
             }
 
-
         } catch (Exception e) {
             error[0] = e.getMessage();
             if (error[0] == null) {
                 error[0] = ""; //NOI18N
             }
-
-            System.out.println("lleguee" + "\n\n");
-
             error[0] = java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("ingui/html/browser_java/recursos/int").getString("ERROR EN PROCESAR. {0}"), new Object[]{error[0]});
             ret = false;
             retorno = null;

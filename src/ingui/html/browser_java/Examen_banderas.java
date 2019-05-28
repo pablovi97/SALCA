@@ -30,7 +30,7 @@ public class Examen_banderas implements App_browser_java {
     }
 /***
  * 
- * @param observable 
+ * @param observable Es una interface
  * @param oldValue ruta del html cargado anteriormente
  * @param newValue  ruta del nuevo html cargado
  */

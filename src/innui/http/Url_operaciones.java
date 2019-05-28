@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  *
  * @author Miguel González Socas
- * @autor Pablo Viera
+ * @author Pablo Viera
  */
 public class Url_operaciones {
 /***

@@ -17,18 +17,23 @@ import java.util.Map;
 
 /**
  *
- * @author daw
+ * @author Miguel González Socas
+ * @author Pablo Viera
  */
 public class UsuarioControlador {
 
     public static int k_nota_un_punto = 1;
     public static double k_nota_penalizacion = 0.5;
-/***
- * 
- * @param archivo Contiene el path del documento html que teniamos cargado
- * @param error Almacena un error en error[0] en caso de que ocurra algun error
- * @return Devulve un nuevo path que hace referencia a otro html si todo es correcto
- */
+
+    /**
+     * *
+     *
+     * @param archivo Contiene el path del documento html que teniamos cargado
+     * @param error Almacena un error en error[0] en caso de que ocurra algun
+     * error
+     * @return Devulve un nuevo path que hace referencia a otro html si todo es
+     * correcto
+     */
     public static String cambiar_nombre_archivo(String archivo, String[] error) {
         String retorno = null;
         Locale locale = Locale.getDefault();
@@ -57,13 +62,14 @@ public class UsuarioControlador {
         return retorno;
     }
 
-
-/***
- * 
- * @param archivo Contiene el path del documento html que teniamos cargado
- * @param error Almacena un error en error[0] en caso de que ocurra algun error
- * @return Devulve un nuevo path que hace referencia a otro html si todo es correcto
- */
+    /**
+     * *
+     *
+     * @param url_texto De tener contenido recibe un path de un archivo html
+     * @param error Almacena un error en error[0] en caso de que ocurra algun
+     * error
+     * @return Devuelve el contenido del html pasado en url_texto
+     */
     public static String procesar(String url_texto, String[] error) {
         Salca sc = new Salca();
         String retorno = null;
@@ -87,7 +93,7 @@ public class UsuarioControlador {
                 String archivo = Archivos.leer_archivo_texto(
                         url_texto, error); //NOI18N
                 if (archivo != null) {
-                        // cambiar por remplace de usuario
+                    // cambiar por remplace de usuario
                     archivo = archivo.replace("${ruta}", query_mapa.get("ruta")); //NOI18N
                     archivo = archivo.replace("${nombreAdministrador}", query_mapa.get("nombreAdministrador"));
                     archivo = archivo.replace("${telefono}", query_mapa.get("telefono"));
